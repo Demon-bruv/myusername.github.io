@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact -<B> Mohammad Baig</B></title>
+    <link rel="stylesheet" href="css/contact.css"> 
+</head>
+<body>
+
+    <!-- Home Icon Back Button -->
+    <a href="index.html" class="nav-back" title="Back to Home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+    </a>
+
+    <!-- The Animated Title -->
+    <div class="header-container">
+        <h1 id="animated-title">HELLO</h1>
+    </div>
+
+    <!-- The Form Container -->
+    <div class="contact-container">
+        
+        <div class="input-group">
+            <label>Name</label>
+            <input type="text" id="userName" class="retro-input" placeholder="Enter your name">
+        </div>
+
+        <div class="input-group">
+            <label>Relation</label>
+            <select id="userRelation" class="retro-input" onchange="toggleRelation()">
+                <option value="none">Select relation...</option>
+                <option value="Friend">Friend</option>
+                <option value="Relative">Relative</option>
+            </select>
+        </div>
+
+        <!-- Hidden Friend Field -->
+        <div class="input-group" id="friend-group" style="display: none;">
+            <label>Friend Status</label>
+            <select id="friendStatus" class="retro-input">
+                <option value="School">School</option>
+                <option value="University">University</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <!-- Hidden Relative Field -->
+        <div class="input-group" id="relative-group" style="display: none;">
+            <label>Relation to me</label>
+            <input type="text" id="relativeStatus" class="retro-input" placeholder="e.g., Cousin, Uncle...">
+        </div>
+
+        <div class="input-group">
+            <label>Preferred Mode of Contact</label>
+            <select id="contactMethod" class="retro-input" onchange="toggleContact()">
+                <option value="none">Select method...</option>
+                <option value="Email">Email</option>
+                <option value="Phone">Phone Number</option>
+            </select>
+        </div>
+
+        <!-- Hidden Email Field -->
+        <div class="input-group" id="email-group" style="display: none;">
+            <label>Your Email ID</label>
+            <input type="email" id="userEmail" class="retro-input" placeholder="you@example.com">
+        </div>
+
+        <!-- Hidden Phone Field -->
+        <div class="input-group" id="phone-group" style="display: none;">
+            <label>Your Phone Number</label>
+            <input type="tel" id="userPhone" class="retro-input" placeholder="+91...">
+        </div>
+
+        <div class="input-group">
+            <label>What's up</label>
+            <textarea id="userMessage" class="retro-input" placeholder="Type your message here..."></textarea>
+        </div>
+
+        <div class="button-container">
+            <button class="retro-submit" onclick="forwardMessage()">Submit</button>
+        </div>
+    </div>
+    <!-- The Hidden Success Screen -->
+    <div class="success-overlay" id="successScreen">
+        <h1 class="success-text">SUBMITTED</h1>
+    </div>
+    <script src="js/contact.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pics - Mohammad Baig</title>
+    <link rel="stylesheet" href="css/pics.css">
+</head>
+<body>
+
+    <!-- Falling/Floating Home Button -->
+    <a href="index.html" class="nav-back" title="Back to Home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+    </a>
+
+    <!-- The Bouncing Area -->
+    <div id="bounce-area">
+        <img src="images/img.jpeg" id="bouncing-pic" class="newspaper-cutout" alt="Mohammad Baig">
+    </div>
+
+    <!-- The Dramatic Overlay (Hidden by default) -->
+    <div id="punchline-screen" class="punchline-overlay">
+        <h1 class="giant-text">ONE PHOTO IS ENOUGH.</h1>
+        <button class="return-btn" onclick="window.location.href='index.html'">GO BACK</button>
+    </div>
+
+    <script src="js/pics.js"></script>
+</body>
+</html>

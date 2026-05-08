@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Mohammad Baig</title>
+    <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+
+    <!-- Varshith-Style Scroll Progress Bar -->
+    <div id="loading-bar"></div>
+
+    <!-- Falling & Floating Home Icon -->
+    <a href="index.html" class="nav-back" title="Back to Home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+    </a>
+
+    <div class="newspaper-container">
+        <!-- Newspaper Header -->
+        <header class="newspaper-header">
+            <h1>THE BAIG CHRONICLES</h1>
+            <div class="newspaper-meta">HYDERABAD • VOL. 1 • 2026</div>
+            
+            <!-- Circular photo updated with your images/ folder path -->
+            <div class="profile-circle-container">
+                <img src="images/img.jpeg" alt="Mohammad Baig" class="profile-photo-circle">
+            </div>
+        </header>
+
+        <div class="top-section">
+            <div class="bio-column full-width">
+                <div class="bio-box">
+                    <h3>PROLOGUE</h3>
+                    <p>
+                        I am a freshman at Mahindra University, Computer Science and Engineering, Batch of 2029. My journey is a tapestry of global travels, rigorous schooling, and the resilience found in missed opportunities.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Apple-Style Accordion Sections -->
+        <div class="apple-accordion">
+            <h2>THE ODYSSEY</h2>
+
+            <!-- 01. Education & Early Life -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>01. Origins & The First Voyage</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <p>
+                        <!-- ADD STORY: First trip to US as a baby and early education -->
+                        My story begins with a flight to the United States as a baby, a precursor to a life defined by movement and learning.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 02. Sherwood Schooling -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>02. The Sherwood Foundation</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <p>
+                        <!-- ADD STORY: Sherwood Public School, 10th grad, and 11th/12th -->
+                        Sherwood Public School was where I truly came into my own, spanning my early years, my 10th-grade graduation, and my final return for 11th and 12th grade.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 03. The Global Crossroads -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>03. Missed Horizons</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <p>
+                        <!-- ADD STORY: FIITJEE, IB school, Houston High, Texas A&M, UT Dallas -->
+                        Life is often defined by the doors that didn't open—from missed chances at FIITJEE and IB schools to the high school path in Houston and rejections from Texas A&M and UT Dallas.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 04. Dubai & Design Trials -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>04. Desert Mirages</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <p>
+                        <!-- ADD STORY: BITS Dubai, Khalifa, Canadian University, and NID -->
+                        The Middle East held promises at BITS Dubai and Khalifa University that didn't materialize, alongside a missed opportunity at the National Institute of Design.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 05. The Final Choice: Mahindra University -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>05. The Mahindra Destination</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <p>
+                        <!-- ADD STORY: JEE, BITS Hyd, choosing MU CSE -->
+                        After the challenges of JEE and BITS Hyderabad, I weighed many options—from Berklee to NYU Steinfield—before finding my place at Mahindra University in 2025.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 06. Athleticism & Skillsets -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>06. Sports & Specializations</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <p>
+                        <!-- ADD STORY: Football, Badminton, Roller Blading, Karate, and 7 Workshops -->
+                        On the field, I am an athlete—football, badminton, rollerblading, and karate. Professionally, I've already attended a few key workshops to sharpen my engineering edge.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/about.js"></script>
+</body>
+</html>
