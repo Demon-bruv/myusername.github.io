@@ -1,0 +1,171 @@
+:root {
+    --bg-blue: #87CEEB; /* Light Sky Blue */
+    --text-white: #ffffff;
+}
+
+body {
+    background-color: var(--bg-blue);
+    color: var(--text-white);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Prevents scrolling while swiping */
+}
+
+/* --- 1. THE DROP-IN ANIMATION --- */
+@keyframes fallIn {
+    0% { transform: translateY(-200px) rotate(-180deg); opacity: 0; }
+    100% { transform: translateY(0) rotate(0); opacity: 1; }
+}
+
+/* --- 2. THE CONTINUOUS HOVER/FLOAT --- */
+@keyframes floatHover {
+    0% { transform: translateY(0px); }
+    50% { 
+        transform: translateY(-10px); 
+        filter: drop-shadow(0 5px 15px rgba(255, 255, 255, 0.6)); 
+    } 
+    100% { transform: translateY(0px); }
+}
+
+/* --- 3. THE AGGRESSIVE FLASH --- */
+@keyframes flashOut {
+    0% { opacity: 1; transform: scale(1); }
+    50% { 
+        opacity: 0.3; 
+        transform: scale(1.3); 
+        color: #FFD700; /* Flashes Yellow */
+        filter: drop-shadow(0 0 20px #FFD700); 
+    }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* --- HOME BUTTON STYLING --- */
+.nav-back {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    color: var(--text-white); 
+    width: 40px;
+    height: 40px;
+    z-index: 100;
+    
+    /* Chains the animations: Fall once, then float forever */
+    animation: 
+        fallIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards,
+        floatHover 3s ease-in-out 0.8s infinite;
+}
+
+.nav-back:hover { 
+    /* Triggers the rapid flashing when the cursor is over it */
+    animation: flashOut 0.2s infinite !important; 
+    cursor: pointer;
+}
+
+/* --- HEADERS --- */
+.page-title {
+    font-size: 3rem;
+    font-family: 'Impact', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    z-index: 10;
+}
+
+.subtitle {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+    z-index: 10;
+}
+
+/* --- THE CARD DECK --- */
+.deck-container {
+    position: relative;
+    width: 320px;
+    height: 450px;
+    perspective: 1000px;
+}
+
+.card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Frosted Glass Effect */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    /* Smooth movement physics */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+    transform-origin: bottom center;
+}
+
+.icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+.card h2 {
+    font-size: 2.5rem;
+    margin: 0 0 2rem 0;
+    font-family: 'Impact', sans-serif;
+    letter-spacing: 1px;
+}
+
+.visit-btn {
+    background-color: var(--text-white);
+    color: var(--bg-blue);
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.visit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* --- CONTROLS --- */
+.controls {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+    z-index: 10;
+}
+
+.controls button {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: var(--text-white);
+    padding: 0.8rem 1.5rem;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.controls button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--text-white);
+}

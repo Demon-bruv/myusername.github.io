@@ -1,0 +1,117 @@
+:root {
+    --bg-color: #0a0a0a;
+    --text-orange: #ff3300;
+    --wheel-color: #f0ebd8;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--wheel-color);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 400vh; 
+    overflow-x: hidden;
+    transition: background-color 0.4s ease; /* Smooth fade when clicking name */
+}
+
+/* --- THE STRETCHED TEXT --- */
+.hero-title-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    pointer-events: none; 
+}
+
+.hero-title {
+    font-size: 11.5vw;
+    color: var(--text-orange);
+    text-transform: uppercase;
+    font-family: 'Impact', sans-serif;
+    letter-spacing: 4px;
+    margin: 0;
+    transform: scaleY(3.5);
+    transform-origin: top center;
+    white-space: nowrap;
+    
+    /* Makes the name clickable */
+    pointer-events: auto; 
+    cursor: pointer;      
+    transition: color 0.4s ease;
+}
+
+/* --- THE WHEEL & CIRCLE CONTAINER --- */
+.wheel-container {
+    position: fixed;
+    bottom: -35vw; 
+    left: 50%;
+    width: 70vw;
+    height: 70vw;
+    margin-left: -35vw; 
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10; /* This pushes the wheel BEHIND your name */
+    transition: transform 0.1s ease-out, opacity 0.4s ease;
+}
+
+.ouroboros-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    stroke: var(--wheel-color);
+    stroke-width: 15;
+    fill: none;
+    opacity: 0.6; /* ADD THIS LINE for a faint, semi-transparent circle */
+}
+
+/* --- THE NAVIGATION LINKS --- */
+.nav-item {
+    position: absolute;
+    font-size: 1.5rem;
+    color: var(--text-orange);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Impact', sans-serif;
+    transform-origin: center;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 2.5vw; 
+    letter-spacing: 2px;
+    
+    /* THIS IS THE FIX: It cuts off the bottom 50% of the invisible click-box */
+    clip-path: inset(0 0 50% 0);
+}
+
+.nav-item:nth-child(2) { transform: rotate(-45deg); }
+.nav-item:nth-child(3) { transform: rotate(0deg); }
+.nav-item:nth-child(4) { transform: rotate(45deg); }
+.nav-item:nth-child(5) { transform: rotate(90deg); }
+.nav-item:nth-child(6) { transform: rotate(135deg); }
+.nav-item:nth-child(7) { transform: rotate(180deg); }
+.nav-item:nth-child(8) { transform: rotate(225deg); }
+.nav-item:nth-child(9) { transform: rotate(270deg); }
+
+/* --- THE RED/BLACK FOCUS MODE --- */
+/* When JS triggers this mode, background goes pure black */
+body.focus-mode {
+    background-color: #000000;
+}
+
+/* When in focus mode, name goes pure red */
+body.focus-mode .hero-title {
+    color: #ff0000;
+}
+
+/* When in focus mode, the wheel fades away entirely */
+body.focus-mode .wheel-container {
+    opacity: 0;
+    pointer-events: none;
+}

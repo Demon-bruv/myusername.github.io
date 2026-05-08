@@ -1,0 +1,80 @@
+:root {
+    --bg-dark: #000000;
+    --pac-yellow: #FFFF00;
+    --pac-blue: #1919A6;
+    --neon-pink: #FF00FF;
+    --text-light: #ffffff;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-dark);
+    font-family: 'Press Start 2P', cursive; /* The 8-bit font */
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* --- HOME BUTTON ANIMATIONS --- */
+@keyframes fallIn { 0% { transform: translateY(-200px) rotate(-180deg); opacity: 0; } 100% { transform: translateY(0) rotate(0); opacity: 1; } }
+@keyframes floatHover { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); filter: drop-shadow(0 5px 15px rgba(255, 255, 255, 0.6)); } }
+.nav-back { top: 2rem; left: 2rem; color: var(--text-light); animation: fallIn 0.8s forwards, floatHover 3s infinite; }
+.nav-back:hover { color: var(--pac-yellow); cursor: pointer; }
+
+/* --- THE CANVAS --- */
+#pixelCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Sits behind the text */
+}
+
+/* --- ARCADE TEXT --- */
+.text-container {
+    position: relative;
+    z-index: 10; /* Sits on top of the canvas */
+    text-align: center;
+    pointer-events: none; /* Lets you click through it if needed */
+    background: rgba(0, 0, 0, 0.7); /* Slight dark box behind text for readability */
+    padding: 2rem 4rem;
+    border: 4px solid var(--pac-blue);
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--pac-blue), inset 0 0 20px var(--pac-blue);
+}
+
+.glitch-text {
+    font-size: 3.5rem;
+    color: var(--pac-yellow);
+    margin: 0 0 1rem 0;
+    text-shadow: 4px 4px 0px var(--neon-pink); /* Retro drop shadow */
+    letter-spacing: 2px;
+}
+
+.sub-text {
+    font-size: 1.2rem;
+    color: #00FFFF; /* Cyan */
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Blinking arcade cursor */
+.cursor {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Responsive fix for smaller screens */
+@media (max-width: 768px) {
+    .glitch-text { font-size: 2rem; }
+    .sub-text { font-size: 0.8rem; }
+    .text-container { padding: 1.5rem; }
+}

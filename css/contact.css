@@ -1,0 +1,220 @@
+:root {
+    --bg-color: #000000;
+    --text-yellow: #FFD700;
+    --box-white: #ffffff; 
+}
+
+body {
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* --- HOME BUTTON --- */
+/* --- THE FALLING IN ANIMATION --- */
+@keyframes fallIn {
+    0% { 
+        transform: translateY(-200px) rotate(-180deg); 
+        opacity: 0; 
+    }
+    70% { 
+        transform: translateY(15px) rotate(10deg); 
+        opacity: 1; 
+    }
+    100% { 
+        transform: translateY(0) rotate(0); 
+        opacity: 1; 
+    }
+}
+
+/* --- THE FLASHING OUT ANIMATION --- */
+@keyframes flashOut {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.2; transform: scale(1.3); filter: drop-shadow(0 0 15px var(--text-yellow)); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* --- HOME BUTTON STYLING --- */
+/* --- 1. THE DROP-IN ANIMATION (Plays once) --- */
+@keyframes fallIn {
+    0% { transform: translateY(-200px) rotate(-180deg); opacity: 0; }
+    100% { transform: translateY(0) rotate(0); opacity: 1; }
+}
+
+/* --- 2. THE CONTINUOUS HOVER/FLOAT (Plays forever) --- */
+@keyframes floatHover {
+    0% { transform: translateY(0px); }
+    50% { 
+        transform: translateY(-10px); /* Bobs up 10 pixels */
+        filter: drop-shadow(0 5px 10px rgba(255, 215, 0, 0.5)); /* Gets a little yellow glow when it rises */
+    } 
+    100% { transform: translateY(0px); }
+}
+
+/* --- 3. THE FLASH (Plays when clicked/touched) --- */
+@keyframes flashOut {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.2; transform: scale(1.3); filter: drop-shadow(0 0 15px var(--text-yellow)); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* --- HOME BUTTON STYLING --- */
+.nav-back {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    color: var(--text-yellow); 
+    width: 40px;
+    height: 40px;
+    
+    /* THE MAGIC TRICK: Chain the two animations with a comma! */
+    /* 1. Falls in for 0.8s. */
+    /* 2. Starts the 3s infinite float immediately after (0.8s delay). */
+    animation: 
+        fallIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards,
+        floatHover 3s ease-in-out 0.8s infinite;
+}
+
+.nav-back:hover { 
+    /* Overrides the peaceful float with the aggressive flash when you put your mouse on it */
+    animation: flashOut 0.3s infinite; 
+    color: #ffffff; 
+    cursor: pointer;
+}
+
+/* --- STRETCHED ANIMATED HEADER --- */
+.header-container {
+    margin-top: 5rem;
+    height: 150px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#animated-title {
+    font-size: 8rem;
+    color: var(--text-yellow);
+    font-family: 'Impact', sans-serif;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    transform: scaleY(3); 
+    transform-origin: center;
+}
+
+/* --- FORM LAYOUT & RETRO INPUTS --- */
+.contact-container {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 5rem;
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
+
+.input-group {
+    margin-bottom: 2.5rem;
+}
+
+label {
+    display: block;
+    color: var(--box-white);
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    margin-left: 5px;
+}
+
+/* 8-bit Box Shadow Trick */
+.retro-input {
+    width: 100%;
+    background-color: #000; /* Black background for dropdowns */
+    border: 3px solid var(--box-white);
+    color: var(--text-yellow); 
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-family: inherit;
+    box-sizing: border-box;
+    box-shadow: 8px 8px 0px var(--box-white);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    appearance: none; /* Removes default dropdown arrow to keep it retro */
+}
+
+.retro-input:focus {
+    outline: none;
+    border-color: var(--text-yellow);
+    transform: translate(4px, 4px);
+    box-shadow: 4px 4px 0px var(--text-yellow); 
+}
+
+textarea.retro-input {
+    min-height: 120px;
+    resize: none;
+}
+
+/* --- SUBMIT BUTTON --- */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+}
+
+/* --- THE SUBMIT BUTTON POP ANIMATION --- */
+.retro-submit {
+    background-color: var(--text-yellow);
+    color: #000;
+    border: 3px solid var(--text-yellow);
+    padding: 0.8rem 4rem;
+    font-size: 1.5rem;
+    font-family: 'Impact', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius: 40px; 
+    /* The cubic-bezier adds a bouncy 'spring' to the hover transition */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s ease, color 0.2s ease;
+}
+
+.retro-submit:hover {
+    background-color: transparent;
+    color: var(--text-yellow);
+    transform: scale(1.15); /* Makes it pop 15% larger */
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4); /* Adds a yellow glow */
+}
+
+/* --- THE SUBMITTED "NEW PAGE" SCREEN --- */
+.success-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--text-yellow); /* Entire screen yellow */
+    z-index: 9999; /* Puts it on top of absolutely everything */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.success-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.success-text {
+    font-size: 10vw; /* Massive text */
+    color: #000000;  /* Black text */
+    font-family: 'Impact', sans-serif;
+    text-transform: uppercase;
+    margin: 0;
+    transform: scaleY(2.5); /* Stretches the text to match your theme */
+}
