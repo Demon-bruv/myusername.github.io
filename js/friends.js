@@ -1,11 +1,8 @@
-// NO IMPORT COMMAND HERE
 
-// --- DOM ELEMENTS ---
 const directoryList = document.getElementById('directoryList');
 const searchInput = document.getElementById('searchInput');
 const locationFilter = document.getElementById('locationFilter');
 
-// --- 1. POPULATE THE LOCATION DROPDOWN ---
 function populateLocations() {
     const locations = [...new Set(friendsDatabase.map(friend => friend.met))];
     
@@ -17,7 +14,7 @@ function populateLocations() {
     });
 }
 
-// --- 2. RENDER THE APPLE-STYLE DIRECTORY ---
+//DIRECTORY ---
 function renderDirectory(data) {
     directoryList.innerHTML = ""; 
 
@@ -80,7 +77,7 @@ function renderDirectory(data) {
     });
 }
 
-// --- 3. FILTER & SEARCH LOGIC ---
+//search
 function filterData() {
     const searchTerm = searchInput.value.toLowerCase();
     const selectedLocation = locationFilter.value;
@@ -97,10 +94,9 @@ function filterData() {
     renderDirectory(filtered);
 }
 
-// Listen for typing and dropdown changes
 searchInput.addEventListener('input', filterData);
 locationFilter.addEventListener('change', filterData);
 
-// --- INITIALIZE ---
+
 populateLocations();
 renderDirectory(friendsDatabase);
