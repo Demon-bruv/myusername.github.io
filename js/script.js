@@ -1,16 +1,15 @@
-// --- THE CLICK TOGGLE LOGIC ---
+// THE CLICK TOGGLE LOGIC
 const nameButton = document.getElementById('myNameToggle');
 
 nameButton.addEventListener('click', () => {
     // Toggles the dark mode on and off
     document.body.classList.toggle('focus-mode');
-    
-    // Smoothly scrolls you back to the top of the page so it looks perfect
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 
-// --- THE SCROLL LOGIC ---
+//THE SCROLL LOGIC
 const wheel = document.getElementById('spinWheel');
 
 window.addEventListener('scroll', () => {
