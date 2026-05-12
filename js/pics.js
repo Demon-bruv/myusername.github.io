@@ -44,18 +44,16 @@ function animate() {
     requestAnimationFrame(animate);
 }
 
-// THE TRAP: When they finally click it
+// THE TRAP
 pic.addEventListener('click', () => {
-    isBouncing = false; // Freeze the image in place
-    overlay.classList.add('active'); // Fade in the "ONE PHOTO IS ENOUGH" screen
+    isBouncing = false;
+    overlay.classList.add('active'); 
 });
 
-// Start the animation as soon as the image loads
 pic.onload = () => {
     requestAnimationFrame(animate);
 };
 
-// Fallback in case the image loads instantly from cache
 if(pic.complete) {
     requestAnimationFrame(animate);
 }
